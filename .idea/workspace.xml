@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2614610-4d9d-47bd-ad64-9daf26f01bd6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Mugdho_AI.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,18 +31,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.entity_extraction.executor&quot;: &quot;Run&quot;,
-    &quot;Python.mugdho_ai_using_langchain.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vector_dump_websocket_server.executor&quot;: &quot;Run&quot;,
-    &quot;Python.websocket_client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.websocket_server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/faisal/PycharmProjects/Mugdho_AI/news_scraper&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.entity_extraction.executor": "Run",
+    "Python.mugdho_ai_using_langchain.executor": "Run",
+    "Python.vector_dump_websocket_server.executor": "Run",
+    "Python.websocket_client.executor": "Run",
+    "Python.websocket_server.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/faisal/PycharmProjects/AI_NEWS_EDITOR"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/news_scraper" />
