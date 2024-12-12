@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# Directories
+
+News_Assistant/
+chroma/
+
 # Distribution / packaging
 .Python
 build/
