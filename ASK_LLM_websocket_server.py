@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 """Echo server using the asyncio API."""
+import datetime
+
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain.vectorstores import Chroma
@@ -18,13 +20,13 @@ llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-002")
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 import os
+import logging
 import gc
 import chromadb
 import asyncio
 import time
 import json
 from websockets.asyncio.server import serve
-
 
 persist_directory = 'News_Assistant/chroma/'
 os.makedirs(persist_directory, exist_ok=True)
@@ -51,6 +53,26 @@ Question: {question}
 
 Helpful Answer:"""
 
+
+
+
+date = datetime.date.today()
+log_dir = f"LLM_OUT_LOG/{date}"
+os.makedirs(log_dir, exist_ok=True)
+
+# Set paths for log and output files with timestamp
+log_filename = f"{log_dir}/{date}_logs.log"
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(log_filename),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
 
 class my_croma():
 
@@ -108,10 +130,12 @@ def init_QA_CHAIN (collection_name):
 def ASK_LLM (question):
 
     #qa_chain = GET_QA_CHAIN()
-    print("QS :: ", question)
+    #print("QS :: ", question)
+    logging.info(msg=question)
     result = qa_chain({"query": question})
 
-    print("LLM RES \n ",result["result"])
+    #print("LLM RES \n ",result["result"])
+    logging.info(msg=result["result"])
     return result["result"]
 
 

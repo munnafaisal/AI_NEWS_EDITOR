@@ -14,7 +14,7 @@
 #### RUN
 `python3 vector_dump_websocket_server.py`
 #### Finally RUN
-`python3 streamlit_chatbox.py`
+`streamlit run streamlit_chatbox.py`
 
 #### If there exit data in Chroma DB then just go to the chatbox and start asking questions
 

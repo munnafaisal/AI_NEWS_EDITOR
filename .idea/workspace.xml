@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2614610-4d9d-47bd-ad64-9daf26f01bd6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Mugdho_AI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Mugdho_AI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASK_LLM_websocket_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASK_LLM_websocket_server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vector_dump_websocket_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/vector_dump_websocket_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/websocket_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/websocket_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +45,10 @@
     "Python.websocket_client.executor": "Run",
     "Python.websocket_server.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/faisal/PycharmProjects/AI_NEWS_EDITOR"
+    "last_opened_file_path": "/home/faisal/PycharmProjects/AI_NEWS_EDITOR",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -51,7 +59,7 @@
       <recent name="$PROJECT_DIR$/Mugdho_streamlit" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.websocket_client">
+  <component name="RunManager" selected="Python.websocket_server">
     <configuration name="entity_extraction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Mugdho_AI" />
       <option name="ENV_FILES" value="" />
@@ -164,9 +172,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.websocket_server" />
         <item itemvalue="Python.websocket_client" />
         <item itemvalue="Python.entity_extraction" />
-        <item itemvalue="Python.websocket_server" />
         <item itemvalue="Python.vector_dump_websocket_server" />
         <item itemvalue="Python.mugdho_ai_using_langchain" />
       </list>
@@ -175,7 +183,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-6a3326d57233-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.24807.21" />
+        <option value="bundled-python-sdk-1b1018131e27-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.22562.180" />
       </set>
     </attachedChunks>
   </component>
@@ -195,8 +203,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/vector_dump_websocket_server.py</url>
-          <line>145</line>
+          <line>167</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/news_scraper/scraper_fn.py</url>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

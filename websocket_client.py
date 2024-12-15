@@ -7,8 +7,10 @@ from websockets.asyncio.client import connect
 import json
 
 #event = {'action': "scrap", "name": "new age", "date": "2024-08-05"}
-event = {'action': "scrap", "name": "new age", "date": "test", "QS": "what about army chief?"}
-#event = {'action': "close", "name": "new age", "date": "test", "QS": "who are you?"}
+
+#event = {'action': "scrap", "name": "new age", "date": "test", "QS": "what about army chief?"}
+
+event = {'action': "close", "name": "new age", "date": "test", "QS": "who are you?"}
 async def hello(my_event):
     async with connect("ws://localhost:8765") as websocket:
         await websocket.send(json.dumps(my_event))

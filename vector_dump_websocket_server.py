@@ -6,7 +6,7 @@ import json
 from websockets.asyncio.server import serve
 import threading
 import traceback
-
+import datetime
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
@@ -17,10 +17,14 @@ import chromadb
 import streamlit as st
 import random
 import time
+import logging
+
 
 persistent_client = chromadb.PersistentClient()
-
-from langchain_community.document_loaders import WebBaseLoader
+# Persist directory for FAISS
+persist_directory = 'News_Assistant/chroma/'
+os.makedirs(persist_directory, exist_ok=True)
+gc.collect()  # Force garbage collection to free memory
 
 if "GOOGLE_API_KEY" not in os.environ:
     # os.environ["GOOGLE_API_KEY"] = "AIzaSyDaYK68BjSZL4TL08sm6hbx27yB5EZWqg0"
@@ -29,6 +33,25 @@ if "GOOGLE_API_KEY" not in os.environ:
 
 # Initialize embeddings
 embedding = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+
+
+date = datetime.date.today()
+log_dir = f"VECTOR_DUMP_LOG/{date}"
+os.makedirs(log_dir, exist_ok=True)
+
+# Set paths for log and output files with timestamp
+log_filename = f"{log_dir}/{date}_logs.log"
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(log_filename),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
 
 
 def get_docs(file_path):
@@ -51,12 +74,6 @@ def get_doc_spliter(chnk_sz, chnk_olp):
     )
     return text_splitter
 
-
-# Persist directory for FAISS
-persist_directory = 'News_Assistant/chroma/'
-os.makedirs(persist_directory, exist_ok=True)
-
-gc.collect()  # Force garbage collection to free memory
 
 
 class my_croma():
@@ -93,20 +110,27 @@ async def send_dump_status(websocket, DB):
     while True:
 
         time.sleep(2)
-        print("dump status :: ", dump_st)
+        logging.info(msg=str(dump_st))
         try:
             if dump_st == "COMP":
                 count = DB._collection.count()
+
                 await websocket.send("Current Total number of chunk ::" + str(count))
+                logging.info(msg="Current Total number of chunk ::" + str(count))
+
                 await websocket.send("close")
+                logging.info(msg="Dumping completed")
                 break
             else:
                 if dump_st == "ST":
                     count = DB._collection.count()
-                    print("vector dump loop running ....")
+
+                    logging.info(msg="vector dump loop running ....")
+                    logging.info(msg="Current Total number of chunk ::" + str(count))
+
                     await websocket.send("Current Total number of chunk ::" + str(count))
         except:
-            print(traceback.print_exc())
+            logging.error(msg=str(traceback.print_exc()))
 
 async def dump_into_vector_DB(news_archive_date,websocket):
 
@@ -129,14 +153,12 @@ async def dump_into_vector_DB(news_archive_date,websocket):
     # Define a list of integers from 1 to 15
     # Split the list into chunks of size 3 using the split_list function
 
-
-
     tt1 = threading.Thread(target=run_sync_in_async_dump_fn, args=(websocket, init_db,), name="scrapper thread",
                            daemon=True)
     tt1.daemon = True
     tt1.start()
 
-    print("...............Number of splitted docs ", len(splits))
+    logging.info(msg=" Number of splitted docs " + str(len(splits)))
 
     new_my_vector_db = my_croma()
 
@@ -154,10 +176,11 @@ async def send_status(websocket,my_scraper):
     while True:
 
         time.sleep(1)
-        print("loop running ....")
+        logging.info(msg= "loop running ....")
         try:
             if my_scraper.fetch_status == "FT_COMP":
                 await websocket.send("scraping completed")
+                logging.info(msg="SCAPING completed")
                 break
             else:
                 await websocket.send(my_scraper.fetch_status)
@@ -172,13 +195,15 @@ def run_sync_in_async_dump_fn(websocket, DB):
 
 async def echo(websocket):
 
-    print("echo was called ....")
+    logging.info(msg="async echo function was called ....")
     async for message in websocket:
 
         #message = json.loads(message)['action']
         data = json.loads(message)
-        print(data)
+        logging.info(msg= str(data))
+
         news_archive_date = data['date']
+        logging.info("Selected Date : " + data['date'])
 
         my_scraper = scrap_data()
         my_scraper.get_date(date=news_archive_date, concurrency=20, output='csv')

@@ -6,12 +6,11 @@ import asyncio
 import time
 import json
 from websockets.asyncio.server import serve
-
-
 async def echo(websocket):
     async for message in websocket:
         message = json.loads(message)['action']
         if message == "close":
+            await websocket.close()
             break
         await websocket.send(message)
         #await websocket.send("close")
