@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2614610-4d9d-47bd-ad64-9daf26f01bd6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Mugdho_AI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Mugdho_AI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASK_LLM_websocket_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASK_LLM_websocket_server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vector_dump_websocket_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/vector_dump_websocket_server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/websocket_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/websocket_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,8 +170,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.websocket_server" />
         <item itemvalue="Python.websocket_client" />
+        <item itemvalue="Python.websocket_server" />
         <item itemvalue="Python.entity_extraction" />
         <item itemvalue="Python.vector_dump_websocket_server" />
         <item itemvalue="Python.mugdho_ai_using_langchain" />

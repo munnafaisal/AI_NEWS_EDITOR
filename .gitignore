@@ -10,6 +10,7 @@ __pycache__/
 
 News_Assistant/
 chroma/
+data/
 
 # Distribution / packaging
 .Python

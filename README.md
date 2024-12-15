@@ -1,5 +1,5 @@
 # AI_NEWS_EDITOR
-### Your News Editor Assisted with RAG and gemini
+### Your News Editor Powered by RAG and gemini
 
 ### Set your API Key for gemini
 
@@ -9,6 +9,7 @@
 4. Create conda environment using `requirements.txt`
 5. Activate conda environment
 
+#### Open three different terminal
 #### RUN 
 `python3 ASK_LLM_websocket_server.py`
 #### RUN
@@ -24,7 +25,7 @@ Select a date from the calender in the sidebar
 Now Click on button named `Dump into VectorDB`
 You will see message upcomimg stating the current process going on
 
-#### Now close  Re-RUN
+#### if you cannot find relevant answer for very recent inserted documents then Re-RUN. Otherwise it would not be necessary.
 `python3 vector_dump_websocket_server.py`
 
 ### NOW ASK YOUR QUESSION IN THE CHATBOX

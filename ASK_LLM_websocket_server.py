@@ -54,8 +54,6 @@ Question: {question}
 Helpful Answer:"""
 
 
-
-
 date = datetime.date.today()
 log_dir = f"LLM_OUT_LOG/{date}"
 os.makedirs(log_dir, exist_ok=True)
@@ -121,13 +119,13 @@ def GET_QA_CHAIN (collection_name):
 
 def init_QA_CHAIN (collection_name):
 
-    global qa_chain
+    #global qa_chain
 
     qa_chain = GET_QA_CHAIN(collection_name)
 
-    #return qa_chain
+    return qa_chain
 
-def ASK_LLM (question):
+def ASK_LLM (question,qa_chain):
 
     #qa_chain = GET_QA_CHAIN()
     #print("QS :: ", question)
@@ -146,8 +144,8 @@ async def echo(websocket):
         message = json.loads(message)
         action = message['action']
         collection_name = message['date']
-        init_QA_CHAIN(collection_name=collection_name)
-        llm_answer = ASK_LLM(question=message['QS'])
+        qa_chain = init_QA_CHAIN(collection_name=collection_name)
+        llm_answer = ASK_LLM(question=message['QS'],qa_chain=qa_chain)
 
         if action == "close":
             break
