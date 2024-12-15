@@ -25,7 +25,8 @@ Select a date from the calender in the sidebar
 Now Click on button named `Dump into VectorDB`
 You will see message upcomimg stating the current process going on
 
-#### if you cannot find relevant answer for very recent inserted documents then Re-RUN. Otherwise it would not be necessary.
+#### if you cannot find relevant answer for very recent inserted documents then Re-RUN. 
 `python3 vector_dump_websocket_server.py`
 
+#### Otherwise it would not be necessary.
 ### NOW ASK YOUR QUESSION IN THE CHATBOX
